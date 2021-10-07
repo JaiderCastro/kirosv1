@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Equipos;
+use App\Models\Configurations;
 use Illuminate\Http\Request;
 
-class EquiposController extends Controller
+class ConfigurationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class EquiposController extends Controller
      */
     public function index()
     {
-        return view('equipos.index');
+        //
     }
 
     /**
@@ -41,10 +41,10 @@ class EquiposController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Equipos  $equipos
+     * @param  \App\Models\Configurations  $configurations
      * @return \Illuminate\Http\Response
      */
-    public function show(Equipos $equipos)
+    public function show(Configurations $configurations)
     {
         //
     }
@@ -52,10 +52,10 @@ class EquiposController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Equipos  $equipos
+     * @param  \App\Models\Configurations  $configurations
      * @return \Illuminate\Http\Response
      */
-    public function edit(Equipos $equipos)
+    public function edit(Configurations $configurations)
     {
         //
     }
@@ -64,10 +64,10 @@ class EquiposController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Equipos  $equipos
+     * @param  \App\Models\Configurations  $configurations
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Equipos $equipos)
+    public function update(Request $request, Configurations $configurations)
     {
         //
     }
@@ -75,10 +75,10 @@ class EquiposController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Equipos  $equipos
+     * @param  \App\Models\Configurations  $configurations
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Equipos $equipos)
+    public function destroy(Configurations $configurations)
     {
         //
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEquiposTable extends Migration
+class CreateConfigurationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateEquiposTable extends Migration
      */
     public function up()
     {
-        Schema::create('equipos', function (Blueprint $table) {
+        Schema::create('configurations', function (Blueprint $table) {
             $table->id();
-            $table->string('equipo',100);
-            $table->string('modelo',100);
-            $table->string('marca',100);
-            $table->string('detalle',100);
-            $table->string('n_inventario',100);
-            $table->string('img')->nullable();
+            $table->string('name');
+            $table->string('logo')->nullable();
+            $table->bigInteger('nit');
+            $table->string('simbolo');
+            $table->string('direccion');
+            $table->string('phone')->nullable();
+
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ class CreateEquiposTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('equipos');
+        Schema::dropIfExists('configurations');
     }
 }

@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\http\Controllers\EquiposController;
+use App\http\Controllers\EquipmentsController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ServicesController;
+
+use App\Models\Categories;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,5 +27,15 @@ Route::get('/dashboard', function () {
 });
 
 
-Route::get('/equipos', [EquiposController::class, 'index'])->name('equipos.index');
+Route::get('/equipments', [EquipmentsController::class, 'index'])->name('equipments.index');
+Route::post('/equipments', [EquipmentsController::class, 'store'])->name('equipments.store');
+
+Route::put('/equipments/{id}', [EquipmentsController::class, 'update'])->name('equipments.update');
+
+Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
+Route::post('/categories', [CategoriesController::class, 'store'])->name('categories.store');
+
+Route::put('/categories/{id}', [CategoriesController::class, 'update'])->name('categories.update');
+Route::get('/services', [ServicesController::class, 'index'])->name('services.index');
+
 

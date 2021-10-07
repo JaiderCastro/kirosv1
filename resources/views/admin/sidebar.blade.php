@@ -1,7 +1,7 @@
 
 <ul class="navbar-nav bg-gradient sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #317bb8">
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
         <div class="sidebar-brand-icon rotate-n-15">
 
         </div>
@@ -23,22 +23,22 @@
 
     <!-- Productos -->
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('equipos.index') }}">
+        <a class="nav-link" href="{{ route('equipments.index') }}">
             <i class="fas fa-fw fa-table" style="color: white"></i>
-            <span style="color: white">Productos</span></a>
+            <span style="color: white">Equipos </span></a>
     </li>
 
      <!-- Servicios -->
      <li class="nav-item">
 
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('services.index') }}">
             <i class="fab fa-servicestack" style="color: white"></i>
             <span style="color: white">Servicios</span></a>
     </li>
 
     <!-- Categorias -->
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('categories.index') }}">
             <i class="fa fa-cubes" style="color: white"></i>
             <span style="color: white">Categorias</span></a>
     </li>
