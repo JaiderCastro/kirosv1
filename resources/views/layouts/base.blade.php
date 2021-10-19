@@ -1,51 +1,71 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="es"><head>
+	<meta charset="UTF-8">
+	<title>K-iros Soluciones</title>
+</head>
 <!-- Este es el header. en donde esta los links del css -->
 
     <head>
         @include('admin.head')
     </head>
 
-<body id="page-top">
+<body>
+
 
 <!-- Page Wrapper -->
-<div id="wrapper">
+
+    <div class="wrapper">
+        <div class="top_navbar">
+          <div class="hamburger">
+             <div class="one"></div>
+             <div class="two"></div>
+             <div class="three"></div>
+          </div>
+          <div class="top_menu">
+            <div class="logo">K-iros Soluciones</div>
+            <ul>
+              <li><a href="#">
+                <i class="fas fa-search"></i></a></li>
+              <li><a href="#">
+                <i class="fas fa-bell"></i>
+                </a></li>
+
+            </ul>
+
+            <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->name }}
+                </a>
+
+            <!-- Dropdown - User Information -->
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+        </li>
+
+          </div>
+     </div> <br> <br>
 
     <!-- Sidebar -->
         @include('admin.sidebar')
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+
 
         <!-- Main Content -->
-        <div id="content">
-
-            <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg topbar mb-4 static-top shadow" style="background-color: hsla(219, 100%, 17%, 0.882)">
-                <ul class="d-none d-lg-block d-xl-none">
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars" style="color: white"></i>
-                    </button>
-
-                </ul>
-                <!-- Sidebar Toggle (Topbar) -->
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars" style="color: white"></i>
-                </button>
-
-                <!-- Topbar Navbar -->
-                <ul class="navbar-nav ml-auto">
-
-                    <div class="topbar-divider d-none d-sm-block"></div>
+        <div class="main_container">
 
 
 
-                </ul>
 
-            </nav>
-            <!-- End of Topbar -->
+
 
             <!-- Contenido -->
             <div class="container-fluid">
@@ -66,10 +86,9 @@
         </footer>
         <!-- End of Footer -->
 
-    </div>
+
     <!-- End of Content Wrapper -->
 
-</div>
 <!-- End of Page Wrapper -->
 
 <!-- Scroll to Top Button-->
@@ -77,11 +96,18 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-
 <!-- Scripts-->
-{{-- @include('admin.script') --}}
+ @include('admin.scripts')
+
+ <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script>
+     $(document).ready(function(){
+         $(".hamburger").click(function(){
+            $(".wrapper").toggleClass("collapse");
+         });
+     });
+ </script>
 
 </body>
 

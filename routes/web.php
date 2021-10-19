@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\EquipmentsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ServicesController;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Categories;
 
@@ -39,3 +40,7 @@ Route::put('/categories/{id}', [CategoriesController::class, 'update'])->name('c
 Route::get('/services', [ServicesController::class, 'index'])->name('services.index');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root{
+
+    --primary-shadow: 0 4px 6px -1px rgba(236, 45, 45, 0.1);
+    --secondary-shadow: 0 10px 15px -3px rgba(0,0,0, 0.1);
+
+    --primary-background: #002d75;
+
+   --secondary-background: #e70d0d;
+}
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter';
+
+}
+
+body {
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card {
+
+    max-width: 450px;
+    width: 100%;
+    box-shadow: var(--primary-shadow);
+    padding: 20px;
+    position: relative;
+    background:  #fff;
+}
+
+.card::before {
+
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: var(--primary-background);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    transform: translate(-50%, -50%) rotate(5deg) ;
+    border-radius: 5px;
+    animation-name: rotateRight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.card::after {
+
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: var(--secondary-background);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    border-radius: 5px;
+    animation-name: rotateLeft;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+
+.card__title{
+
+    font-size: 2rem;
+    text-align: center;
+}
+
+@keyframes rotateRight {
+
+    from {
+
+        transform: translate(-50%, -50%)rotate(0deg);
+
+
+    }
+
+    to {
+        transform: translate(-50%, -50%)rotate(5deg);
+    }
+}
+
+
+@keyframes rotateLeft {
+
+    from {
+
+        transform: translate(-50%, -50%)rotate(0deg);
+
+
+    }
+
+    to{
+        transform: translate(-50%, -50%)rotate(-5deg);
+    }
+}
+
+.form__input {
+
+    width: 100%;
+    margin-top: 2rem;
+    padding: 20px 5px;
+    border: none;
+    box-shadow: var(--secondary-shadow);
+    outline: none;
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+.form__input:hover {
+
+    background-color: #eef2ff;
+}
+
+.form__button {
+
+    width: 100%;
+    margin-top: 2rem;
+    padding: 20px 0px;
+    border: none;
+    background-color: #4f46e5;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form__button:hover {
+
+    letter-spacing: 1pbx;
+}
+
+.card__footer {
+
+    margin: 2rem 0rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__footer a {
+
+    transition: 0.2s;
+}
+
+.card__footer a:hover {
+
+    letter-spacing: 0.5px;
+}
+
+.card__footer a:first-child {
+
+    text-decoration: none;
+    color: #000;
+}
+
+.card__footer a:first-child {
+
+    text-decoration: none;
+    color: #000;
+
+}
+
+@media (max-width: 500px) {
+
+    .card::before {
+        width: 90%;
+    }
+
+    .card::after {
+
+        width: 90%;
+    }
+}
+
