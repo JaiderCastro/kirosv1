@@ -1,14 +1,14 @@
 @extends('layouts.base')
 @section('content')
 
-@section('title', 'Equipos')
+@section('title', 'Usuarios')
 
 <div class="form-group">
     <button type="button" class="btn btn-primary split" data-toggle="modal" data-target="#exampleModal">
             <span class="icon text-white-50">
                 <i class="fas fa-plus"></i>
             </span>
-        <span class="text">Agregar Equipo</span>
+        <span class="text">Agregar usuario</span>
     </button>
 
 </div>
@@ -18,48 +18,43 @@
             <table class="table table-bordered" id="dataTable">
                 <thead>
                 <tr>
-                    <th>N°</th>
-                    <th>NOMBRE DEL EQUIPO</th>
-                    <th>MODELO</th>
-                    <th>MARCA</th>
-                    <th>CATEGORIA</th>
-                    <th>DETALLE</th>
-                    <th>FECHA DE CREACION</th>
-                    <th>STOCK</th>
+                    <th>N°ID</th>
+                    <th>NOMBRE</th>
+                    <th>TIPO DE USUARIO</th>
+                    <th>CORREO</th>
                     <th>ACCIONES</th>
                 </tr>
                 </thead>
 
                 <tbody>
-                    <?php $num = 0; ?>
-                    @foreach ($equipments as $equipment)
-                    <?php $num++; ?>
+
+
+
 
                     <tr>
-                        <td>{{ $equipment->id }}</td>
-                        <td>{{ $equipment->equipment }}</td>
-                        <td>{{ $equipment->model }}</td>
-                        <td>{{ $equipment->brand }}</td>
-                        <td>{{ $equipment->nameCategories }}</td>
-                        <td>{{ $equipment->detail }}</td>
-                        <td>{{ $equipment->created_at}}</td>
                         <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
                         <td>
-                            <button type="button" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editar<?=$num?>">
+                            <button type="button" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editar">
                                 <i class="fa fa-edit"></i>
                             </button>
-                            <button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#eliminar<?=$num?>">
+                            <button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#eliminar">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </td>
 
 
+                    </tr>
 
-                    @include('equipments.createmod')
-                    @include('equipments.edit')
-                    @include('equipments.delete')
+                     {{--
+                     @include('categories.createmod')
+                     @include('categories.edit')
+                     @include('categories.delete') --}}
                 </tbody>
-                @endforeach
+
             </table>
         </div>
     </div>

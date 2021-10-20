@@ -17,8 +17,8 @@ class EquipmentsController extends Controller
     public function index()
     {
         $categories = Categories::all();
-        $equipments = Equipments::all();
-        return view('equipments.index', compact('equipments','categories'));
+        $equipments = Equipments::select('equipments.*','categories.name as nameCategories')->join('categories','equipments.category_id','=', 'categories.id')->get();
+        return view('equipments.index', compact('equipments', 'categories'));
     }
 
     /**
@@ -61,6 +61,17 @@ class EquipmentsController extends Controller
             'detail'       => $request['detail'],
             'number'       => $request['number'],
         ]); */
+
+      /*   $request->validate([
+            'equipment'         => 'required',
+            'model'             => 'required',
+            'brand'             => 'required',
+            'category_id'       => 'required',
+            'detail'            => 'required',
+            'number'            =>  'required',
+
+
+            ]); */
 
         $equipments               =  new Equipments();
         $equipments->equipment    =  $request->equipment;
@@ -132,8 +143,11 @@ class EquipmentsController extends Controller
      * @param  \App\Models\Equipments  $equipments
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Equipments $equipments)
+    public function destroy(Equipments $equipments, $id)
     {
-        //
+        $equipments = Equipments::find($id);
+        $equipments->delete();
+
+        return redirect()->route('equipments.index');
     }
 }

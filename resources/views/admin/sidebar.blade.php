@@ -20,12 +20,12 @@
         <span class="icon"><i class="fa fa-cubes"></i></span>
         <span class="title">Categorias</span>
         </a></li>
-      <li><a href="#">
+      <li><a href="{{ route('customers.index') }}">
         <span class="icon"><i class="fas fa-address-card"></i></span>
         <span class="title">Clientes</span>
         </a></li>
 
-        <li><a href="#">
+        <li><a href="{{ route('users.index') }}">
             <span class="icon"><i class="fas fa-users"></i></span>
             <span class="title">Usuarios</span>
             </a></li>

@@ -8,10 +8,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('categories.destroy', $category->id) }}" method="post">
+                <form action="{{ route('equipments.destroy', $equipment->id) }}" method="post">
                     @csrf
                     @method('delete')
-                <h6>¿Seguro que desea elimiar esta categoria <strong> " {{ $category->name }} " ?<br><br></strong >Una vez eliminado NO se recuperara</h6>
+                <h6>¿Seguro que desea elimiar el equipo <strong> " {{ $equipment->equipment }} " ?<br><br></strong >Una vez eliminado NO se recuperara</h6>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-danger">Eliminar</button>

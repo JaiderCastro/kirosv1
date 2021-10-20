@@ -38,7 +38,7 @@
                             <button type="button" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editar<?=$num?>">
                                 <i class="fa fa-edit"></i>
                             </button>
-                            <button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#eliminar">
+                            <button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#eliminar<?=$num?>">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </td>
@@ -49,6 +49,7 @@
 
                      @include('categories.createmod')
                      @include('categories.edit')
+                     @include('categories.delete')
                 </tbody>
                 @endforeach
             </table>

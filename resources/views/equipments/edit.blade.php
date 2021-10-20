@@ -30,7 +30,7 @@
                     <label for="recipient-name" class="col-form-label">Categoria</label>
                     <select id="" name="category_id" type="number" class="form-control" tabindex="3">
                         @foreach ($categories as $category)
-                         <option value="{{ $category->id }}"> {{ $category->id }}</option>
+                         <option value="{{ $category->id }}"> {{ $category->name }}</option>
                         @endforeach
                     </select>
 

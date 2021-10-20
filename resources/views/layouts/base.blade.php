@@ -42,7 +42,7 @@
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
+                    {{ __('Salir') }}
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -99,7 +99,7 @@
 <!-- Scripts-->
  @include('admin.scripts')
 
- <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+{{--  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
  <script>
      $(document).ready(function(){
@@ -107,7 +107,7 @@
             $(".wrapper").toggleClass("collapse");
          });
      });
- </script>
+ </script> --}}
 
 </body>
 

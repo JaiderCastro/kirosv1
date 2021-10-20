@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\EquipmentsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\CustomersController;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Categories;
@@ -32,12 +34,17 @@ Route::get('/equipments', [EquipmentsController::class, 'index'])->name('equipme
 Route::post('/equipments', [EquipmentsController::class, 'store'])->name('equipments.store');
 
 Route::put('/equipments/{id}', [EquipmentsController::class, 'update'])->name('equipments.update');
+Route::delete('/equipments/{id}', [EquipmentsController::class, 'destroy'])->name('equipments.destroy');
 
 Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
 Route::post('/categories', [CategoriesController::class, 'store'])->name('categories.store');
+Route::delete('/categories/{id}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
 
 Route::put('/categories/{id}', [CategoriesController::class, 'update'])->name('categories.update');
 Route::get('/services', [ServicesController::class, 'index'])->name('services.index');
+
+Route::get('/users', [UsersController::class, 'index'])->name('users.index');
+Route::get('/customers', [CustomersController::class, 'index'])->name('customers.index');
 
 
 
