@@ -1,7 +1,14 @@
 @extends('layouts.base')
-@section('content')
 
+@section('content')
+<div class="container-fluid">
+    <div class="md-center justify-content mb-8">
+        <h1 class="h5 mb-2 text-gray-900">Equipos</h1>
+    </div>
+</div>
 @section('title', 'Equipos')
+
+
 
 <div class="form-group">
     <button type="button" class="btn btn-primary split" data-toggle="modal" data-target="#exampleModal">

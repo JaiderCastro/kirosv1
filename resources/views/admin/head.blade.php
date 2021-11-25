@@ -14,7 +14,7 @@
 
 <!-- Custom styles for this template-->
 <!--CSS y el datatables(la estructura visual del crud) esta en la carpeta public -->
-<link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+{{-- <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet"> --}}
 <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 

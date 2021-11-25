@@ -14,7 +14,8 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        return view('customers.index');
+        $customers = Customers::all();
+        return view('customers.index', compact('customers'));
     }
 
     /**
@@ -35,7 +36,18 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $row                       = new Customers();
+        $row->name                 = $request->name;
+        $row->lastname             = $request->lastname;
+        $row->identification_nit   = $request->identification_nit;
+        $row->address              = $request->address;
+        $row->email                = $request->email;
+        $row->telephone            = $request->telephone;
+        $row->description          = $request->description;
+
+        $row->save();
+
+        return redirect('/customers');
     }
 
     /**

@@ -22,7 +22,10 @@
              <div class="three"></div>
           </div>
           <div class="top_menu">
-            <div class="logo">K-iros Soluciones</div>
+            <div class="logo">
+                <img src="{{ asset('img/logo.png') }}" width="110" height="50" class="img-fluid">
+
+            </div>
             <ul>
               <li><a href="#">
                 <i class="fas fa-search"></i></a></li>
@@ -80,7 +83,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Kiros soluciones 2021</span>
+                    <span>Copyright &copy; K-iros soluciones 2021</span>
                 </div>
             </div>
         </footer>

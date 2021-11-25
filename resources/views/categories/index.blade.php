@@ -2,6 +2,11 @@
 @section('content')
 
 @section('title', 'Categorias')
+<div class="container-fluid">
+    <div class="md-center justify-content mb-8">
+        <h1 class="h5 mb-2 text-gray-900">Categorias</h1>
+    </div>
+</div>
 
 <div class="form-group">
     <button type="button" class="btn btn-primary split" data-toggle="modal" data-target="#exampleModal">

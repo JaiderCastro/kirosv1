@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Services;
+use App\Models\Equipments;
+use App\Models\Customers;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ServicesController extends Controller
 {
@@ -14,7 +18,11 @@ class ServicesController extends Controller
      */
     public function index()
     {
-        return view('services.index');
+        $equipments = Equipments::all();
+        $customers  = Customers::all();
+        $user       = User::all();
+        $services   = Services::all();
+        return view('services.index', compact('equipments', 'customers', 'user', 'services'));
     }
 
     /**
@@ -35,7 +43,21 @@ class ServicesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $services                 =  new Services();
+        $services->equipment_id   =  $request->equipment_id;
+        $services->customer_id    =  $request->customer_id;
+        $services->user_id        =  $request->user_id;
+        $services->state          =  $request->state;
+        $services->type_service   =  $request->type_service;
+        $services->description    =  $request->description;
+        $services->date_entry     =  $request->date_entry;
+        $services->deadline       =  $request->deadline;
+        $services->solution_diagn =  $request->solution_diagn;
+        $services->detail         =  $request->detail;
+        $services->total          =  $request->total;
+        $services->save();
+        return redirect('/services');
     }
 
     /**
@@ -69,7 +91,38 @@ class ServicesController extends Controller
      */
     public function update(Request $request, Services $services)
     {
-        //
+        $request->validate([
+            'equipment_id'     => 'required',
+            'customer_id'      => 'required',
+            'user_id'          => 'required',
+            'state'            =>  'required',
+            'type_service'    => 'required',
+            'description'      => 'required',
+            'date_entry'       => 'required',
+            'deadline'         => 'required',
+            'solution_diagn'   => 'required',
+            'detail'           => 'required',
+            'total'           => 'required',
+
+        ]);
+
+        $row = DB::table('services')
+        ->where('id', $request->id)
+        ->update(['equipment_id' => $request->equipment_id,
+        'customer_id' => $request->customer_id,
+        'user_id' => $request->user_id,
+        'state' => $request->state,
+        'type_service'     => $request->type_service,
+        'description'  => $request->description,
+        'date_entry'  => $request->date_entry,
+        'deadline'  => $request->deadline,
+        'solution_diagn'  => $request->solution_diagn,
+        'detail'  => $request->detail,
+        'total'  => $request->total,
+
+         ]);
+
+        return redirect()->route('services.index');
     }
 
     /**

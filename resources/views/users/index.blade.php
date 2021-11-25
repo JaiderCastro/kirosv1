@@ -1,64 +1,56 @@
 @extends('layouts.base')
 @section('content')
 
+<div class="container-fluid">
+    <div class="md-center justify-content mb-8">
+        <h1 class="h5 mb-2 text-gray-900">Usuarios</h1>
+    </div>
+</div>
 @section('title', 'Usuarios')
+
 
 <div class="form-group">
     <button type="button" class="btn btn-primary split" data-toggle="modal" data-target="#exampleModal">
             <span class="icon text-white-50">
                 <i class="fas fa-plus"></i>
             </span>
-        <span class="text">Agregar usuario</span>
+        <span class="text">Agregar Usuario</span>
     </button>
 
 </div>
-<div class="card shadow mb-4">
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable">
-                <thead>
-                <tr>
-                    <th>N°ID</th>
-                    <th>NOMBRE</th>
-                    <th>TIPO DE USUARIO</th>
-                    <th>CORREO</th>
-                    <th>ACCIONES</th>
-                </tr>
-                </thead>
 
-                <tbody>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col"># ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Numero De Identificacion</th>
+        <th scope="col">Tipo De Usuario</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
 
-
-
-
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                        <td>
-                            <button type="button" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editar">
-                                <i class="fa fa-edit"></i>
-                            </button>
-                            <button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#eliminar">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </td>
+        <?php $num = 0; ?>
+        @foreach ($users as $user)
+        <?php $num++; ?>
 
 
-                    </tr>
+      <tr>
+        <th scope="row">{{ $user->id }}</th>
+        <td>{{  $user->name }}</td>
+        <td>{{  $user->docnumber }}</td>
+        <td>{{  $user->type_user}}</td>
+        <td>{{  $user->email }}</td>
+      </tr>
 
-                     {{--
-                     @include('categories.createmod')
-                     @include('categories.edit')
-                     @include('categories.delete') --}}
-                </tbody>
 
-            </table>
-        </div>
-    </div>
-</div>
+    </tbody>
+    @endforeach
+  </table>
+
+@include('users.create')
+
 @endsection
 
 {{-- @section('js')
@@ -75,3 +67,7 @@
         @endif
     </script>
 @endsection --}}
+
+
+
+

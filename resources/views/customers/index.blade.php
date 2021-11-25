@@ -1,82 +1,74 @@
 @extends('layouts.base')
 @section('content')
-
-@section('title', 'Categorias')
+@section('title', 'Clientes')
+<div class="container-fluid">
+    <div class="md-center justify-content mb-8">
+        <h1 class="h5 mb-2 text-gray-900">Clientes</h1>
+    </div>
+</div>
 
 <div class="form-group">
     <button type="button" class="btn btn-primary split" data-toggle="modal" data-target="#exampleModal">
             <span class="icon text-white-50">
                 <i class="fas fa-plus"></i>
             </span>
-        <span class="text">Agregar cliente</span>
+        <span class="text">Agregar Cliente</span>
     </button>
 
 </div>
-<div class="card shadow mb-4">
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable">
-                <thead>
-                <tr>
-                    <th>N°ID</th>
-                    <th>NOMBRE</th>
-                    <th>DIRECCION</th>
-                    <th>CORREO</th>
-                    <th>TELEFONO</th>
-                    <th>DESCRIPCION</th>
-                    <th>ACCIONES</th>
-                </tr>
-                </thead>
 
-                <tbody>
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+          <th scope="col">#ID</th>
+          <th scope="col">Nombres</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Identificacion</th>
+          <th scope="col">Direccion</th>
+          <th scope="col">Email</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+    </thead>
+    <tbody>
+
+        <?php $num = 0; ?>
+        @foreach ($customers as $customer)
+        <?php $num++; ?>
+      <tr>
+        <th scope="row">{{ $customer->id }}</th>
+        <td>{{ $customer->name }}</td>
+        <td>{{ $customer->lastname }}</td>
+        <td>{{ $customer->identification_nit }}</td>
+        <td>{{ $customer->address }}</td>
+        <td>{{ $customer->email }}</td>
+        <td>{{ $customer->telephone }}</td>
+        <td>{{ $customer->description }}</td>
+        <td>
+        <button type="button" rel="tooltip" class="btn btn-info">
+            <i class="material-icons">ver</i>
+        </button>
+
+        <button type="button" rel="tooltip" class="btn btn-success">
+            <i class="material-icons">editar</i>
+        </button>
+        <button type="button" rel="tooltip" class="btn btn-danger">
+            <i class="material-icons">eliminar</i>
+        </button>
+     </td>
+    </tr>
+     @include('customers.create')
+     {{--   @include('categories.edit')
+       @include('categories.delete') --}}
+
+    </tbody>
+    @endforeach
+
+  </table>
+
+  @endsection
 
 
 
-
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-
-                        <td>
-                            <button type="button" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editar">
-                                <i class="fa fa-edit"></i>
-                            </button>
-                            <button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#eliminar">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </td>
-
-
-                    </tr>
-
-                     {{--
-                     @include('categories.createmod')
-                     @include('categories.edit')
-                     @include('categories.delete') --}}
-                </tbody>
-
-            </table>
-        </div>
-    </div>
-</div>
-@endsection
-
-{{-- @section('js')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script>
-        @if (session('mensaje'))
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: '{{ session('mensaje') }}',
-            showConfirmButton: false,
-            timer: 1500
-        })
-        @endif
-    </script>
-@endsection --}}

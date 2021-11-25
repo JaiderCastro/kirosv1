@@ -22,7 +22,7 @@ use App\Models\Categories;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/dashboard', function () {
@@ -42,9 +42,14 @@ Route::delete('/categories/{id}', [CategoriesController::class, 'destroy'])->nam
 
 Route::put('/categories/{id}', [CategoriesController::class, 'update'])->name('categories.update');
 Route::get('/services', [ServicesController::class, 'index'])->name('services.index');
+Route::post('/services', [ServicesController::class, 'store'])->name('service.store');
+Route::put('/services/{id}', [ServicesController::class, 'update'])->name('service.update');
 
 Route::get('/users', [UsersController::class, 'index'])->name('users.index');
+Route::post('/users', [UsersController::class, 'store'])->name('users.store');
+
 Route::get('/customers', [CustomersController::class, 'index'])->name('customers.index');
+Route::post('/customers', [CustomersController::class, 'store'])->name('customers.store');
 
 
 
