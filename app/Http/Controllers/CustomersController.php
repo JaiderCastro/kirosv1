@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CustomersController extends Controller
 {
@@ -81,7 +82,31 @@ class CustomersController extends Controller
      */
     public function update(Request $request, Customers $customers)
     {
-        //
+        $request->validate([
+            'name'     => 'required',
+            'lastname'      => 'required',
+            'identification_nit'          => 'required',
+            'address'            =>  'required',
+            'email'    => 'required',
+            'telephone'      => 'required',
+            'description'       => 'required',
+             
+
+        ]);
+
+        $row = DB::table('customers')
+        ->where('id', $request->id)
+        ->update(['name' => $request->name,
+        'lastname' => $request->lastname,
+        'identification_nit' => $request->identification_nit,
+        'address' => $request->address,
+        'email'     => $request->email,
+        'telephone'  => $request->telephone,
+        'description'  => $request->description,
+
+         ]);
+
+         return redirect()->route('customers.index');
     }
 
     /**
@@ -90,8 +115,11 @@ class CustomersController extends Controller
      * @param  \App\Models\Customers  $customers
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customers $customers)
+    public function destroy(Customers $customers, $id)
     {
-        //
+        $customers =Customers::find($id);
+        $customers->delete();
+
+        return redirect()->route('customers.index');
     }
 }

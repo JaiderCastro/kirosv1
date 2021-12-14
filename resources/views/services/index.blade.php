@@ -48,7 +48,7 @@
 
                     <tr>
                         <td>{{ $service->id }}</td>
-                        <td>{{ $service->equipment_id }}</td>
+                        <td>{{ $service->nameEquipments }}</td>
                         <td>{{ $service->customer_id }}</td>
                         <td>{{ $service->user_id }}</td>
                         <td>{{ $service->type_service }}</td>
@@ -60,7 +60,7 @@
                             <button type="button" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editar<?=$num?>">
                                 <i class="fa fa-edit"></i>
                             </button>
-                            <button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#eliminar">
+                            <button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#eliminar<?=$num?>">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </td>
@@ -71,8 +71,8 @@
 
                      @include('services.createmod')
                      @include('services.edit')
-                   {{--   @include('categories.edit')
-                     @include('categories.delete') --}}
+                     @include('services.delete')
+
                 </tbody>
                 @endforeach
 
@@ -82,7 +82,7 @@
 </div>
 @endsection
 
-{{-- @section('js')
+ @section('js')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         @if (session('mensaje'))
@@ -95,4 +95,7 @@
         })
         @endif
     </script>
-@endsection --}}
+
+@endsection
+
+

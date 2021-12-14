@@ -42,14 +42,22 @@
         <td>{{  $user->docnumber }}</td>
         <td>{{  $user->type_user}}</td>
         <td>{{  $user->email }}</td>
-      </tr>
 
-
+      <td>
+        <button type="button" class="btn btn-success btn-circle" data-toggle="modal" data-target="#editar">
+            <i class="fa fa-edit"></i>
+        </button>
+        <button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#eliminar">
+            <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+     @include('users.create')
     </tbody>
-    @endforeach
+     @endforeach
   </table>
 
-@include('users.create')
+
 
 @endsection
 

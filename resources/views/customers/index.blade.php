@@ -48,20 +48,20 @@
         <td>{{ $customer->description }}</td>
         <td>
         <button type="button" rel="tooltip" class="btn btn-info">
-            <i class="material-icons">ver</i>
+            <i class="fas fa-eye"></i>
         </button>
 
-        <button type="button" rel="tooltip" class="btn btn-success">
-            <i class="material-icons">editar</i>
+        <button type="button" rel="tooltip" class="btn btn-success" data-toggle="modal" data-target="#editar<?=$num?>">
+            <i class="fas fa-user-edit"></i>
         </button>
-        <button type="button" rel="tooltip" class="btn btn-danger">
-            <i class="material-icons">eliminar</i>
+        <button type="button" rel="tooltip" class="btn btn-danger" data-toggle="modal" data-target="#eliminar<?=$num?>">
+            <i class="fa fa-trash"></i>
         </button>
      </td>
     </tr>
      @include('customers.create')
-     {{--   @include('categories.edit')
-       @include('categories.delete') --}}
+     @include('customers.edit')
+    {{--  @include('customers.delete') --}} 
 
     </tbody>
     @endforeach

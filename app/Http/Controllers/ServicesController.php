@@ -21,7 +21,7 @@ class ServicesController extends Controller
         $equipments = Equipments::all();
         $customers  = Customers::all();
         $user       = User::all();
-        $services   = Services::all();
+        $services   = Services::select('services.*','equipments.equipment as nameEquipments')->join('equipments','services.equipment_id','=','equipments.id')->get();
         return view('services.index', compact('equipments', 'customers', 'user', 'services'));
     }
 
@@ -57,7 +57,7 @@ class ServicesController extends Controller
         $services->detail         =  $request->detail;
         $services->total          =  $request->total;
         $services->save();
-        return redirect('/services');
+        return redirect('/services')->with('mensaje','¡Servicio Creado Con Exito!');
     }
 
     /**
@@ -122,7 +122,8 @@ class ServicesController extends Controller
 
          ]);
 
-        return redirect()->route('services.index');
+        return redirect()->route('services.index')->with('mensaje','¡Servicio Editado Con Exito!');
+        //return redirect('/services')->with('mensaje','¡Servicio Creado Con Exito!');
     }
 
     /**
@@ -131,8 +132,11 @@ class ServicesController extends Controller
      * @param  \App\Models\Services  $services
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Services $services)
+    public function destroy(Services $services, $id)
     {
-        //
+        $services = Services::find($id);
+        $services->delete();
+
+        return redirect()->route('services.index');
     }
 }
